@@ -1,0 +1,6 @@
+name: Api Storage
+type: module
+description: Api storge engine
+core: 8.x
+version: '8.x-1.0-dev'
+project: api_storage

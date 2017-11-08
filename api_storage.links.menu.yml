@@ -1,0 +1,11 @@
+entity.api_storage_entity_type.collection:
+  title: 'Api Storage Entity Endpoints'
+  parent: system.admin_structure
+  description: 'Manage mapped fields, forms, and display settings for your declared endpoints'
+  route_name: entity.fidelio_entity_type.collection
+
+api_storage.settings:
+  description: "Configure api storage settings"
+  route_name: "api_storage.settings"
+  title: "Api storage settings"
+  parent: "system.admin_config"

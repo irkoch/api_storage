@@ -1,0 +1,9 @@
+name: Api storage Views
+type: module
+description: Views Query backend for exposing data from the API Storage.
+core: '8.x'
+version: '8.x-1.0-dev'
+package: api_storage
+dependencies:
+  - api_storage
+  - views

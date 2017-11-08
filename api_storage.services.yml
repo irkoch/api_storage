@@ -1,0 +1,26 @@
+services:
+  entity.api_storage_entities.routes:
+    class: Drupal\api_storage\Routing\ApiStorageEntityRoutes
+    arguments: ['@entity.manager']
+  plugin.manager.api_storage.entity_storage_client:
+    class: Drupal\api_storage\ApiClientStorageManager
+    parent: default_plugin_manager
+  plugin.manager.api_storage_endpoint:
+    class: Drupal\api_storage\ApiEndpointManager
+    parent: default_plugin_manager
+  api_storage.entity_storage_client.response_decoder_factory:
+    class: Drupal\api_storage\ResponseDecoderFactory
+    tags:
+      - { name: service_collector, tag: api_storage_response_decoder, call: addDecoder }
+  api_storage.entity_storage_client.request_encoder_factory:
+    class: Drupal\api_storage\RequestEncoderFactory
+    tags:
+      - { name: service_collector, tag: api_storge_request_encoder, call: addEncoder }
+  api_storage.entity.query:
+    class: Drupal\api_storage\Entity\Query\External\QueryFactory
+    arguments: ['@plugin.manager.api_storage.entity_storage_client', '@api_storage.entity_storage_client.response_decoder_factory', '@api_storage.entity_storage_client.request_encoder_factory', '@http_client', '@entity.manager']
+    tags:
+      - { name: backend_override }
+  logger.channel.api_storage:
+    parent: logger.channel_base
+    arguments: ['api_storage']

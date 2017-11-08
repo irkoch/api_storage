@@ -1,0 +1,16 @@
+entity.api_storage_entity_type.collection:
+  path: '/admin/structure/api-storage/endpoint-types'
+  defaults:
+    _title: 'Api storage endpoint types'
+  requirements:
+    _permission: 'administer api storage'
+
+api_storage.settings:
+  path: 'admin/config/api-storage/settings'
+  options:
+    _admin_route: TRUE
+  defaults:
+    _form: 'Drupal\api_storage\Form\ApiStorageSettingsForm'
+    _title: 'Api storage Settings'
+  requirements:
+    _permission: 'administer site configuration'

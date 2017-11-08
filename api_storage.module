@@ -1,0 +1,15 @@
+<?php
+/**
+ * @file
+ */
+
+/**
+ * Implements hook_entity_type_build().
+ */
+function api_storage_entity_type_build(array &$entity_types) {
+  foreach ($entity_types as $entity_type) {
+    if ($entity_type->get('bundle_endpoint_type')) {
+      $entity_type->setHandlerClass('bundle_endpoint', 'Drupal\api_storage\EndpointBundleHandler');
+    }
+  }
+}

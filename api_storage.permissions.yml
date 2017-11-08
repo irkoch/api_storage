@@ -1,0 +1,4 @@
+administer api storage:
+  title: "Administer api storage"
+  description: "Administer api storage"
+  restrict access: true
